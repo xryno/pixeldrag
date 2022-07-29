@@ -218,7 +218,7 @@ body {
     top: 27em;
     left: 48em;
     position: absolute;
-    background-size: cover;
+    background-size: contain;
     opacity: 0.9;
    
 }

@@ -1,28 +1,25 @@
-let garage = new Audio("audio/title.mp3");
-let wheelspin = new Audio("audio/wheelspin.mp3");
-let beep = new Audio("audio/beep.wav");
-let go = new Audio("audio/go.wav");
-let drive = new Audio("audio/drive.mp3");
+const garage = new Audio("audio/title.mp3");
+const wheelspin = new Audio("audio/wheelspin.mp3");
+const beep = new Audio("audio/beep.wav");
+const go = new Audio("audio/go.wav");
+const drive = new Audio("audio/drive.mp3");
 let path = "audio/rx7engine.wav";
 
-
-
-let player = document.getElementById("player");
-let wheel1 = document.getElementById("wheel1");
-let wheel2 = document.getElementById("wheel2");
-let revcounter = document.getElementById("revcounter");
-let needle = document.getElementById("needle");
-let needle2 = document.getElementById("revBarNeedle");
+const player = document.getElementById("player");
+const wheel1 = document.getElementById("wheel1");
+const wheel2 = document.getElementById("wheel2");
+const revcounter = document.getElementById("revcounter");
+const needle = document.getElementById("needle");
 let reactionTime = 0;
 let finalTime = 0;
-let nameBox = document.getElementById("inputName");
-let scoreNameArray = [document.getElementById("score1"), 
+const nameBox = document.getElementById("inputName");
+const scoreNameArray = [document.getElementById("score1"), 
                     document.getElementById("score2"), 
                     document.getElementById("score3"), 
                     document.getElementById("score4"), 
                     document.getElementById("score5")]
 
-let scoreArray = [["Moomin: ", 2.815],
+const scoreArray = [["Moomin: ", 2.815],
                   ["Timmy: ", 5.612],
                   ["Karen: ", 5.713],
                   ["Pedro: ", 16.895],
@@ -38,7 +35,7 @@ let revBy = 0;
 let revDownBy = -45;
 let activeCar = 0; //for object function to call correct player image
 
-let carGarage = [{
+const carGarage = [{
   Make: "Mazda",
   Model: "RX-7",
   Year: "1998",
@@ -132,13 +129,12 @@ function changeToGarage(){
  function startRace () {
   pitchChange = 0;
   launchRev = 0;
-console.log(path)
+  revBy = 0;
   revCar();
- garage.pause();
+  garage.pause();
   keyProtect = 13;
   keyProtectRev = 32;
   launchSpeed = 0;
-  // carGarage[activeCar].image()
   startNum = 5
 document.getElementById("fadeScreen").style.display = "none";
 document.getElementById("carSelect").style.display = "none";
