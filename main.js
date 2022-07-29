@@ -3,6 +3,7 @@ const wheelspin = new Audio("audio/wheelspin.mp3");
 const beep = new Audio("audio/beep.wav");
 const go = new Audio("audio/go.wav");
 const drive = new Audio("audio/drive.mp3");
+const bov = new Audio("audio/bov.wav");
 let path = "audio/rx7engine.wav";
 
 const player = document.getElementById("player");
@@ -32,7 +33,7 @@ let keyProtect = 0;
 let keyProtectRev = 0;
 let launchRev = getCurrentRotation();
 let launchSpeed = 0;
-let launchMessage = document.getElementById("launchMessage");
+const launchMessage = document.getElementById("launchMessage");
 
 let revBy = 0;
 let revDownBy = -45;
@@ -127,7 +128,12 @@ function startRace() {
   keyProtect = 13;
   keyProtectRev = 32;
   launchSpeed = 0;
-  startNum = 5;
+  startNum = 7;
+
+  skid1.style.setProperty("animation", "0");
+  skid1.style.setProperty("display", "none");
+  skid2.style.setProperty("animation", "0");
+  skid2.style.setProperty("display", "none");
   document.getElementById("fadeScreen").style.display = "none";
   document.getElementById("carSelect").style.display = "none";
   document.getElementById("highScores").style.display = "none";
@@ -172,7 +178,10 @@ function keyUpPressesUp(press) {
     revBy = 0;
     needle.style.transform = "rotate(" + revDownBy + "deg)";
     pitchChange = -0.04;
-  }
+    bov.volume = 0.2;
+    bov.currentTime = 0;
+    bov.play()
+  }   
 }
 
 //rev up
@@ -185,6 +194,7 @@ function keyUpPresses(press) {
     needle.style.transform = "rotate(" + revBy + "deg)";
     launchRev = getCurrentRotation();
     pitchChange = 0.02;
+    
   }
 
   //launch
@@ -201,6 +211,11 @@ function keyUpPresses(press) {
       clearInterval(counttimer);
       reactionTime = startNum / 1.5;
       launchSpeed = launchRev;
+      skid1.style.setProperty("animation", "skidani 1s ease-in");
+      skid1.style.setProperty("display", "block");
+      skid2.style.setProperty("animation", "skidani 1s ease-in");
+      skid2.style.setProperty("display", "block");
+      
 
       //launch quality
 
@@ -240,7 +255,7 @@ function startTimer() {
   }, 10);
 }
 
-let startNum = 5;
+
 
 function countDown() {
   counttimer = setInterval(function () {
