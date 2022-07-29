@@ -3,14 +3,11 @@
     src: url("./fonts/pixel.ttf");
     }
 
-
-
 body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
- 
     height: 100vh;
     width: 100vw;
     overflow: hidden;   
@@ -28,14 +25,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
-
 }
 
 .wrap {
-    
-/*     
-    background-color: black; */
     position: absolute;
     margin-top: 28em;
     left: 50%;
@@ -43,74 +35,69 @@ body {
     overflow: hidden; 
     }
 
-
-    #startScreen {
-        border-radius: 0.5em;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        gap: 7em;
-        width: 60rem;
-        height: 40rem;
-        background-image: url(images/frontscreen.png);
-        background-size: cover;
-        background-position: right;
-        background-color: rgb(0, 0, 0);
-        font-size: 2em;
-        text-align: center;
-        z-index: 3;
-        
-        animation:opac 0.8s;
-       
-        }
+#startScreen {
+    border-radius: 0.5em;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 7em;
+    width: 60rem;
+    height: 40rem;
+    background-image: url(images/frontscreen.png);
+    background-size: cover;
+    background-position: right;
+    background-color: rgb(0, 0, 0);
+    font-size: 2em;
+    text-align: center;
+    z-index: 3;
+    animation:opac 0.8s;
+    }
       
-        #carSelect {
-          border-radius: 0.5em;
-          position: absolute;
-          width: 60rem;
-          height: 40rem;
-          background-image: url(images/garage.jpeg);
-          background-position: center;
-          background-color: #000000;   
-         
-          color: rgb(255, 255, 255);
-          background-color: rgb(0, 0, 0);
-          font-family: 'myFont';
-          font-size: 2em;
-          -webkit-font-smoothing: antialiased;
-          text-shadow: 1px 1px #000000;
-          text-align: left;
-          display: none;
-          animation:opac 0.8s;
-          z-index: 2;
-           }
+#carSelect {
+    border-radius: 0.5em;
+    position: absolute;
+    width: 60rem;
+    height: 40rem;
+    background-image: url(images/garage.jpeg);
+    background-position: center;
+    background-color: #000000;   
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    font-family: 'myFont';
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px #000000;
+    text-align: left;
+    display: none;
+    animation:opac 0.8s;
+    z-index: 2;
+    }
 
-           #carImage {
-            position: relative;
-            height: 3em;
-            width: 10em;
-            top: 5em;
-            left: 4em;
-            background-image: url(images/cars/rx7.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            border: 0px solid black;
-      
-          }
-          #carData {
-            position: relative;
-            top: 10px;
-            left: 500px;
-              }
-      
-              #buttons {
-                position: relative;
-                top: 2em;
-                left: 5em;
-              }
+#carImage {
+    position: relative;
+    height: 3em;
+    width: 10em;
+    top: 5em;
+    left: 4em;
+    background-image: url(images/cars/rx7.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 0px solid black;
 
+    }
+#carData {
+    position: relative;
+    top: 10px;
+    left: 500px;
+    }
+
+#buttons {
+    position: relative;
+    top: 2em;
+    left: 5em;
+    }
               
 #fadeScreen {
     border-radius: 1em;
@@ -119,8 +106,6 @@ body {
     width: 60rem;
     position: absolute;
     z-index: 1;
-    
-    
 }              
 
 
@@ -161,8 +146,6 @@ body {
 }
 
 #player {
-
-    
     width: 13em;
     height: 4em;
     top: 30em;
@@ -172,14 +155,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     animation: 0;
-    
-   
- 
-   
 }
 
 #wheel1 {
-  
     width: 2em;
     height: 2em;
     top: 2.07em;
@@ -188,11 +166,9 @@ body {
     background-size: cover;
     transform: rotate(0deg);
     animation: 0;
-
 }
 
 #wheel2 {
-    
     width: 2em;
     height: 2em;
     top: 2.07em;
@@ -201,14 +177,13 @@ body {
     background-size: cover;
     transform: rotate(0deg);
     animation: 0;
-
 }
 
 #headlights {
     position: absolute;
     left: 11.5em;
     top: 0.2em;
-    
+
 }
 
 #revcounter {
@@ -220,7 +195,6 @@ body {
     position: absolute;
     background-size: contain;
     opacity: 0.9;
-   
 }
 
 #needle {
@@ -234,8 +208,6 @@ body {
     transform: rotate(-45deg);
     transform-origin: 76% 60%;
     transition: 1.8s;
-    
-    
 }   
 
 #launchMessage {
@@ -246,8 +218,6 @@ body {
     text-shadow: 1px 1px #000000;
     top: 8em;
     left: 12em;
-
-
 }
 
 #lightContainer {  
@@ -274,12 +244,10 @@ body {
 
 .green {
     position: relative;
- 
     border-radius: 50%;
     height: 2em;
     width: 2em;
     display: block;
-    
 }
 
 
@@ -331,8 +299,8 @@ body {
   
     #highScores {
   
-      position: absolute;
-      font-size: 1.3em;
+    position: absolute;
+    font-size: 1.3em;
     background-color: rgb(0, 0, 0);
     top: 6em;
     left: 11.5em;
@@ -346,8 +314,8 @@ body {
   
     #newHighScore {
   
-     position: absolute;
-     font-size: 1.3em;
+    position: absolute;
+    font-size: 1.3em;
     background-color: rgb(0, 0, 0);
     top: 6em;
     left: 11.5em;
@@ -382,6 +350,10 @@ body {
       -webkit-font-smoothing: antialiased;
       text-shadow: 1px 1px #000000;
    
+    }
+
+    .buttonHigh:hover {
+        color: rgb(32, 243, 246);
     }
 
     .startButton {
