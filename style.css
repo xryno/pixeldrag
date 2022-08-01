@@ -8,8 +8,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
     overflow: hidden;   
     color: rgb(255, 255, 255);
     background-color: rgb(174, 174, 190);
@@ -20,16 +18,15 @@ body {
 }
 
 #main {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-.wrap {
+#gameContain {
     position: absolute;
-    margin-top: 28em;
+    margin-top: 27em;
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden; 
@@ -237,10 +234,33 @@ body {
     transition: 1.8s;
 }   
 
-#par {
-    
-    filter: drop-shadow(1px 10px 3px rgba(50, 50, 0, 0.5));
+
+#launch {
+    position: absolute;
+    top: 20em;
+    left: 5.5em;
+    height: 5em;
+    width: 5em;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 5em;
+    display: none;
 }
+
+#rev {
+    position: absolute;
+    top: 18em;
+    left: 50em;
+    height: 6em;
+    width: 6em;
+    background-color: rgb(0, 255, 47);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 6em;
+    display: none;
+}
+
 
 #launchMessage {
 
@@ -384,7 +404,7 @@ body {
     }
 
     .buttonHigh:hover {
-        color: rgb(32, 243, 246);
+        color: rgb(123, 255, 193);
     }
 
     .startButton {

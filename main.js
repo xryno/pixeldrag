@@ -412,3 +412,120 @@ function stopSound(press) {
   }
 }
 
+//buttons on rotate
+
+function getOrn() {
+  let curOrn = screen.msOrientation || (screen.orientation || screen.mozOrientation).type;
+
+  return curOrn;
+}
+
+window.addEventListener("orientationchange", addButtons);
+
+function addButtons () {
+  if (getOrn() == "landscape-primary") {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("gameContain").style.marginTop = "17em";
+    document.getElementById("rev").style.display = "block";
+    document.getElementById("launch").style.display = "block";
+
+  }
+
+  if (getOrn() == "portrait-primary") {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("gameContain").style.marginTop = "28em";
+    document.getElementById("rev").style.display = "none";
+    document.getElementById("launch").style.display = "none";
+
+  }
+}
+
+rev.addEventListener("mousedown", clickRevUp);
+rev.addEventListener("mouseup", clickRevDown);
+launch.addEventListener("click", launchFun);
+// rev.dispatchEvent(new KeyboardEvent('keydown', {'keyCode':32,'which':32}));
+
+function clickRevUp(){
+  console.log("up")
+  player.style.setProperty("animation", "shake 2s linear infinite");
+  revBy += 28;
+  needle.style.transform = "rotate(" + revBy + "deg)";
+  launchRev = getCurrentRotation();
+  pitchChange = 0.02;
+}
+
+function clickRevDown(){
+  console.log("down")
+  player.style.setProperty("animation", "0");
+  revBy = 0;
+  needle.style.transform = "rotate(" + revDownBy + "deg)";
+  pitchChange = -0.1;
+  bov.volume = 0.05;
+  bov.currentTime = 0;
+  bov.play()
+}
+
+
+
+function clickLauch() {
+
+  if (startNum > 0) {
+    jumpStart();
+  } else {
+    wheelspin.volume = 0.5;
+    wheelspin.play();
+    drive.volume = 0.3;
+    drive.play();
+    keyProtectRev = 0;
+    clearInterval(counttimer);
+    reactionTime = startNum / 1.5;
+    launchSpeed = launchRev;
+    skid1.style.setProperty("animation", "skidani 1s ease-in");
+    skid1.style.setProperty("display", "block");
+    skid2.style.setProperty("animation", "skidani 1s ease-in");
+    skid2.style.setProperty("display", "block");
+    
+
+    //launch quality
+
+    if (launchSpeed > 70 && launchSpeed < 115) {
+      player.style.setProperty("animation", "launch 2s ease-in");
+      launchMessage.style.display = "block";
+      launchMessage.innerText = "Perfect launch!";
+    } else if (launchSpeed > 30 && launchSpeed < 70) {
+      player.style.setProperty("animation", "launch 2.1s ease-in");
+      launchMessage.style.display = "block";
+      launchMessage.innerText = "Good launch!";
+    } else {
+      player.style.setProperty("animation", "launch 2.5s ease-in");
+      launchMessage.style.display = "block";
+      launchMessage.innerText = "Poor launch!";
+    }
+
+    wheel1.style.setProperty("animation", "wheels 0.08s linear infinite");
+    wheel2.style.setProperty("animation", "wheels 0.1s linear infinite");
+    document.querySelector("#lightContainer :nth-child(7)").style.background = "none";
+    document.querySelector("#lightContainer :nth-child(8)").style.background = "none";
+    document.querySelector("#lightContainer :nth-child(7)").style.boxShadow = "none";
+    document.querySelector("#lightContainer :nth-child(8)").style.boxShadow = "none";
+    document.getElementById("revcounter").style.display = "none";
+    document.getElementById("needle").style.display = "none";
+
+    startTimer();
+  }
+}
+
+function stopSoundClick () {
+  if (playSound !== null) {
+    playSound.stop();
+    playSound = null; //needed to reinstate audio when restart
+    clearInterval(revChangeTimer);
+    keyProtect = 0;
+  }
+
+}
+
+function launchFun () {
+  clickLauch()
+  stopSoundClick()
+}
