@@ -415,9 +415,9 @@ function stopSound(press) {
 //buttons on rotate
 
 function getOrn() {
-  let curOrn = screen.msOrientation || (screen.orientation || screen.mozOrientation).type;
 
-  return curOrn;
+
+  return screen.orientation.type;
 }
 
 window.addEventListener("orientationchange", addButtons);
@@ -440,8 +440,8 @@ function addButtons () {
   }
 }
 
-rev.addEventListener("mousedown", clickRevUp);
-rev.addEventListener("mouseup", clickRevDown);
+rev.addEventListener("pointerdown", clickRevUp);
+rev.addEventListener("pointerup", clickRevDown);
 launch.addEventListener("click", launchFun);
 // rev.dispatchEvent(new KeyboardEvent('keydown', {'keyCode':32,'which':32}));
 
