@@ -440,8 +440,8 @@ function addButtons () {
   }
 }
 
-rev.addEventListener("pointerdown", clickRevUp);
-rev.addEventListener("pointerup", clickRevDown);
+rev.addEventListener("touchstart", clickRevUp);
+rev.addEventListener("touchend", clickRevDown);
 launch.addEventListener("click", launchFun);
 // rev.dispatchEvent(new KeyboardEvent('keydown', {'keyCode':32,'which':32}));
 
