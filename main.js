@@ -177,8 +177,8 @@ function keyUpPressesUp(press) {
     player.style.setProperty("animation", "0");
     revBy = 0;
     needle.style.transform = "rotate(" + revDownBy + "deg)";
-    pitchChange = -0.04;
-    bov.volume = 0.2;
+    pitchChange = -0.1;
+    bov.volume = 0.05;
     bov.currentTime = 0;
     bov.play()
   }   
@@ -189,7 +189,7 @@ function keyUpPressesUp(press) {
 document.body.addEventListener("keydown", keyUpPresses);
 function keyUpPresses(press) {
   if (press.keyCode === keyProtectRev) {
-    player.style.setProperty("animation", "shake 0.4s");
+    player.style.setProperty("animation", "shake 2s linear infinite");
     revBy += 28;
     needle.style.transform = "rotate(" + revBy + "deg)";
     launchRev = getCurrentRotation();
@@ -411,3 +411,4 @@ function stopSound(press) {
     }
   }
 }
+
