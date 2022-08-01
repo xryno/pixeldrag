@@ -6,6 +6,10 @@ const drive = new Audio("audio/drive.mp3");
 const bov = new Audio("audio/bov.wav");
 let path = "audio/rx7engine.wav";
 
+const finish = document.getElementById("finish");
+const road = document.getElementById("track");
+const skids = document.getElementById("skids");
+const gamebg = document.getElementById("game");
 const player = document.getElementById("player");
 const wheel1 = document.getElementById("wheel1");
 const wheel2 = document.getElementById("wheel2");
@@ -23,7 +27,7 @@ const scoreNameArray = [
 ];
 
 const scoreArray = [
-  ["Moomin: ", 2.815],
+  ["Moomin: ", 4.215],
   ["Timmy: ", 5.612],
   ["Karen: ", 5.713],
   ["Pedro: ", 16.895],
@@ -129,11 +133,14 @@ function startRace() {
   keyProtectRev = 32;
   launchSpeed = 0;
   startNum = 7;
-
+  gamebg.style.setProperty("animation", "0")
+  road.style.setProperty("animation", "0")
   skid1.style.setProperty("animation", "0");
   skid1.style.setProperty("display", "none");
   skid2.style.setProperty("animation", "0");
   skid2.style.setProperty("display", "none");
+  gamebg.style.backgroundPosition = "-300%";
+  finish.style.setProperty("animation", "0");
   document.getElementById("fadeScreen").style.display = "none";
   document.getElementById("carSelect").style.display = "none";
   document.getElementById("highScores").style.display = "none";
@@ -215,20 +222,24 @@ function keyUpPresses(press) {
       skid1.style.setProperty("display", "block");
       skid2.style.setProperty("animation", "skidani 1s ease-in");
       skid2.style.setProperty("display", "block");
+      gamebg.style.setProperty("animation", "bgmove 4.2s ease-in");
+      road.style.setProperty("animation", "roadmove 4.2s ease-in");
+      finish.style.setProperty("animation", "finishmove 4.2s linear");
+     
       
 
       //launch quality
 
       if (launchSpeed > 70 && launchSpeed < 115) {
-        player.style.setProperty("animation", "launch 2s ease-in");
+        player.style.setProperty("animation", "launch 4s ease-in");
         launchMessage.style.display = "block";
         launchMessage.innerText = "Perfect launch!";
       } else if (launchSpeed > 30 && launchSpeed < 70) {
-        player.style.setProperty("animation", "launch 2.1s ease-in");
+        player.style.setProperty("animation", "launch 4.1s ease-in");
         launchMessage.style.display = "block";
         launchMessage.innerText = "Good launch!";
       } else {
-        player.style.setProperty("animation", "launch 2.5s ease-in");
+        player.style.setProperty("animation", "launch 4.2s ease-in");
         launchMessage.style.display = "block";
         launchMessage.innerText = "Poor launch!";
       }
@@ -327,6 +338,8 @@ function gameOver() {
   document.getElementById("timerID").style.display = "none";
   launchMessage.style.display = "none";
   player.style.display = "none";
+  gamebg.style.backgroundPosition = "100%";
+  finish.style.marginRight = "0.5em"
   yourReact.textContent = `Reaction: ${Math.abs(reactionTime.toFixed(3))}`;
   yourReact2.textContent = `Reaction: ${Math.abs(reactionTime.toFixed(3))}`;
   yourScore.textContent = `Your time: ${finalTime.toFixed(4)}`;
@@ -412,7 +425,7 @@ function stopSound(press) {
   }
 }
 
-//buttons on rotate
+//MOBILE CONTROLS////////////////////////////////////////////////
 
 function getOrn() {
 
