@@ -140,6 +140,7 @@ function startRace() {
   skid2.style.setProperty("animation", "0");
   skid2.style.setProperty("display", "none");
   gamebg.style.backgroundPosition = "-300%";
+  finish.style.marginRight = "-10.5em";
   finish.style.setProperty("animation", "0");
   document.getElementById("fadeScreen").style.display = "none";
   document.getElementById("carSelect").style.display = "none";
