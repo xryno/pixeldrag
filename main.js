@@ -27,11 +27,11 @@ const scoreNameArray = [
 ];
 
 const scoreArray = [
-  ["Moomin: ", 4.215],
-  ["Timmy: ", 5.612],
-  ["Karen: ", 5.713],
-  ["Pedro: ", 16.895],
-  ["Bert: ", 17.126],
+  ["Moomin", 4.215],
+  ["Timmy", 5.612],
+  ["Karen", 5.713],
+  ["Pedro", 16.895],
+  ["Bert", 17.126],
 ];
 let keyProtect = 0;
 let keyProtectRev = 0;
